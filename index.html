@@ -3,31 +3,25 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,intial-scale=1">
-        <title>Hitechno's Office</title>
-
-        <!-- Link AR libraries -->
+        <title>ARつかったなんかおもしろいやつ</title>
         <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-
-        <!-- Style -->
-        <style>
-            html, body {
-                margin: 0;
-                border: none;
-                padding: 0;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-            }
-        </style>
     </head>
     <body>
-        <a-scene arjs="sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3">
+        <!-- Create a scene -->
+        <a-scene>
 
-            <a-marker type="barcode">
-                <a-box position="0 0.5 0" color="yellow"></a-box>
+            <!-- Load assets -->
+            <a-assets>
+                <a-asset-items id="office" src="office.gltf"></a-asset-items>
+            </a-assets>
+
+            <!-- Load markers -->
+            <a-marker type="pattern" url="marker.patt">
+                <a-entity gltf-model="#office" scale="1 1 1"></a-entity>
             </a-marker>
 
+            <!-- Create a camera -->
             <a-entity camera></a-entity>
         </a-scene>
     </body>
